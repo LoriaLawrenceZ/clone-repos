@@ -17,7 +17,7 @@ then
 fi
 
 # Download the .jar file from the Google bucket
-gsutil cp gs://<bucket-name>/<file-name>.jar .
+gsutil cp gs://vr_4_4/VRMaster.jar .
 
 # Inform the user that the download is complete
 echo "Download complete."

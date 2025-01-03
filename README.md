@@ -13,7 +13,7 @@ The `download_jar.sh` script is used to download a specific `.jar` file from a G
    ```
    ./download_jar.sh
    ```
-5. The script will download the specified `.jar` file from the Google bucket and inform you when the download is complete.
+5. The script will download the specified `.jar` file from the Google bucket `vr_4_4` and inform you when the download is complete.
 
 ### How to install gsutil
 
