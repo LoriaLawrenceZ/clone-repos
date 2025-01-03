@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Check if Python is installed
+if ! command -v python &> /dev/null
+then
+    echo "Python could not be found. Would you like to install it? (yes/no)"
+    read install_python
+    if [ "$install_python" == "yes" ]; then
+        echo "Please install Python from the Microsoft Store or disable this shortcut from Settings > Manage App Execution Aliases."
+        exit
+    else
+        echo "Please install Python before running this script."
+        exit
+    fi
+fi
+
 # Check if gsutil is installed
 if ! command -v gsutil &> /dev/null
 then
