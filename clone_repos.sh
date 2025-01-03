@@ -2,12 +2,22 @@
 
 # Function to clone repositories
 clone_repositories() {
-  gh repo clone git@github.com:vrsoftbr/VRMaster.git
-  gh repo clone git@github.com:vrsoftbr/VRConnect.git
-  gh repo clone git@github.com:vrsoftbr/VRCore.git
-  gh repo clone git@github.com:vrsoftbr/VRNFe.git
-  gh repo clone git@github.com:vrsoftbr/VRFramework.git
-  gh repo clone git@github.com:vrsoftbr/VRWorkflow.git
+  if command -v gh &> /dev/null
+  then
+    gh repo clone git@github.com:vrsoftbr/VRMaster.git
+    gh repo clone git@github.com:vrsoftbr/VRConnect.git
+    gh repo clone git@github.com:vrsoftbr/VRCore.git
+    gh repo clone git@github.com:vrsoftbr/VRNFe.git
+    gh repo clone git@github.com:vrsoftbr/VRFramework.git
+    gh repo clone git@github.com:vrsoftbr/VRWorkflow.git
+  else
+    git clone git@github.com:vrsoftbr/VRMaster.git
+    git clone git@github.com:vrsoftbr/VRConnect.git
+    git clone git@github.com:vrsoftbr/VRCore.git
+    git clone git@github.com:vrsoftbr/VRNFe.git
+    git clone git@github.com:vrsoftbr/VRFramework.git
+    git clone git@github.com:vrsoftbr/VRWorkflow.git
+  fi
 }
 
 # Function to checkout branch in all repositories
