@@ -5,6 +5,16 @@ ask_branch() {
   read -p "Branch to checkout: " branch_name
 }
 
+# Function to ask which branch user wants to update from
+ask_update_branch() {
+  read -p "Branch to update from: " update_branch_name
+}
+
+# Function to ask which branch user wants to create from
+ask_create_branch() {
+  read -p "Branch to create from: " create_branch_name
+}
+
 # Function to clone repositories
 clone_repositories() {
   if command -v gh &> /dev/null
@@ -67,13 +77,58 @@ pull_all() {
   git pull --all
 }
 
+# Function to create branches from existing ones
+create_branch() {
+  read -p "New branch name: " new_branch_name
+  cd VRMaster
+  git checkout -b $new_branch_name $create_branch_name
+
+  cd ../VRConnect
+  git checkout -b $new_branch_name $create_branch_name
+
+  cd ../VRCore
+  git checkout -b $new_branch_name $create_branch_name
+
+  cd ../VRNFe
+  git checkout -b $new_branch_name $create_branch_name
+
+  cd ../VRFramework
+  git checkout -b $new_branch_name $create_branch_name
+
+  cd ../VRWorkflow
+  git checkout -b $new_branch_name $create_branch_name
+}
+
+# Function to update local branches from remote using its upstream or another branch
+update_branch() {
+  cd VRMaster
+  git pull origin $update_branch_name
+
+  cd ../VRConnect
+  git pull origin $update_branch_name
+
+  cd ../VRCore
+  git pull origin $update_branch_name
+
+  cd ../VRNFe
+  git pull origin $update_branch_name
+
+  cd ../VRFramework
+  git pull origin $update_branch_name
+
+  cd ../VRWorkflow
+  git pull origin $update_branch_name
+}
+
 # Prompt the user for the desired action
-echo "O que você deseja fazer?"
-echo "[1] CLONE repos"
-echo "[2] CHECKOUT repos"
-echo "[3] CLONE and CHECKOUT repos"
-echo "[4] PULL all changes from UPSTREAM"
-read -p "Digite o número da sua escolha: " choice
+echo "What would you like to do?"
+echo "[1] Clone repositories"
+echo "[2] Checkout branch in repositories"
+echo "[3] Clone and checkout branch in repositories"
+echo "[4] Pull all changes from upstream"
+echo "[5] Create new branch from existing one"
+echo "[6] Update local branch from remote"
+read -p "Enter the number of your choice: " choice
 
 case $choice in
   1)
@@ -91,8 +146,16 @@ case $choice in
   4)
     pull_all
     ;;
+  5)
+    ask_create_branch
+    create_branch
+    ;;
+  6)
+    ask_update_branch
+    update_branch
+    ;;
   *)
-    echo "Escolha inválida. Saindo."
+    echo "Invalid choice. Exiting."
     exit 1
     ;;
 esac
