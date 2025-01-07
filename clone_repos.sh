@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Function to ask which branch user wants to checkout
+ask_branch() {
+  read -p "Branch to checkout: " branch_name
+}
+
 # Function to clone repositories
 clone_repositories() {
   if command -v gh &> /dev/null
@@ -22,8 +27,6 @@ clone_repositories() {
 
 # Function to checkout branch in all repositories
 checkout_branch() {
-  read -p "Digite o nome do branch que você deseja fazer checkout: " branch_name
-
   cd VRMaster
   git checkout $branch_name
 
@@ -43,11 +46,33 @@ checkout_branch() {
   git checkout $branch_name
 }
 
+# Function to update branches
+checkout_branch() {
+  cd VRMaster
+  git pull --all
+
+  cd ../VRConnect
+  git pull --all
+
+  cd ../VRCore
+  git pull --all
+
+  cd ../VRNFe
+  git pull --all
+
+  cd ../VRFramework
+  git pull --all
+
+  cd ../VRWorkflow
+  git pull --all
+}
+
 # Prompt the user for the desired action
 echo "O que você deseja fazer?"
-echo "1. Clonar repositórios"
-echo "2. Fazer checkout do branch em todos os repositórios"
-echo "3. Clonar repositórios e depois fazer checkout do branch em todos os repositórios"
+echo "[1] CLONE repos"
+echo "[2] CHECKOUT repos"
+echo "[3] CLONE and CHECKOUT repos"
+echo "[4] PULL all changes from UPSTREAM"
 read -p "Digite o número da sua escolha: " choice
 
 case $choice in
@@ -55,11 +80,16 @@ case $choice in
     clone_repositories
     ;;
   2)
+    ask_branch
     checkout_branch
     ;;
   3)
+    ask_branch
     clone_repositories
     checkout_branch
+    ;;
+  4)
+    pull_all
     ;;
   *)
     echo "Escolha inválida. Saindo."
