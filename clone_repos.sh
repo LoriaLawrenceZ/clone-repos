@@ -82,21 +82,27 @@ create_branch() {
   read -p "New branch name: " new_branch_name
   cd VRMaster
   git checkout -b $new_branch_name $create_branch_name
+  git push --set-upstream origin $new_branch_name
 
   cd ../VRConnect
   git checkout -b $new_branch_name $create_branch_name
+  git push --set-upstream origin $new_branch_name
 
   cd ../VRCore
   git checkout -b $new_branch_name $create_branch_name
+  git push --set-upstream origin $new_branch_name
 
   cd ../VRNFe
   git checkout -b $new_branch_name $create_branch_name
+  git push --set-upstream origin $new_branch_name
 
   cd ../VRFramework
   git checkout -b $new_branch_name $create_branch_name
+  git push --set-upstream origin $new_branch_name
 
   cd ../VRWorkflow
   git checkout -b $new_branch_name $create_branch_name
+  git push --set-upstream origin $new_branch_name
 }
 
 # Function to update local branches from remote using its upstream or another branch
