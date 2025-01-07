@@ -37,60 +37,84 @@ ask_create_branch() {
 clone_repositories() {
   if command -v gh &> /dev/null
   then
+    echo -e "\033[1;36mCloning VRMaster repository...\033[0m"
     gh repo clone git@github.com:vrsoftbr/VRMaster.git
+    echo -e "\033[1;36mCloning VRConnect repository...\033[0m"
     gh repo clone git@github.com:vrsoftbr/VRConnect.git
+    echo -e "\033[1;36mCloning VRCore repository...\033[0m"
     gh repo clone git@github.com:vrsoftbr/VRCore.git
+    echo -e "\033[1;36mCloning VRNFe repository...\033[0m"
     gh repo clone git@github.com:vrsoftbr/VRNFe.git
+    echo -e "\033[1;36mCloning VRFramework repository...\033[0m"
     gh repo clone git@github.com:vrsoftbr/VRFramework.git
+    echo -e "\033[1;36mCloning VRWorkflow repository...\033[0m"
     gh repo clone git@github.com:vrsoftbr/VRWorkflow.git
   else
+    echo -e "\033[1;36mCloning VRMaster repository...\033[0m"
     git clone git@github.com:vrsoftbr/VRMaster.git
+    echo -e "\033[1;36mCloning VRConnect repository...\033[0m"
     git clone git@github.com:vrsoftbr/VRConnect.git
+    echo -e "\033[1;36mCloning VRCore repository...\033[0m"
     git clone git@github.com:vrsoftbr/VRCore.git
+    echo -e "\033[1;36mCloning VRNFe repository...\033[0m"
     git clone git@github.com:vrsoftbr/VRNFe.git
+    echo -e "\033[1;36mCloning VRFramework repository...\033[0m"
     git clone git@github.com:vrsoftbr/VRFramework.git
+    echo -e "\033[1;36mCloning VRWorkflow repository...\033[0m"
     git clone git@github.com:vrsoftbr/VRWorkflow.git
   fi
 }
 
 # Function to checkout branch in all repositories
 checkout_branch() {
+  echo -e "\033[1;36mChecking out branch $branch_name in VRMaster repository...\033[0m"
   cd VRMaster
   git checkout $branch_name
 
+  echo -e "\033[1;36mChecking out branch $branch_name in VRConnect repository...\033[0m"
   cd ../VRConnect
   git checkout $branch_name
 
+  echo -e "\033[1;36mChecking out branch $branch_name in VRCore repository...\033[0m"
   cd ../VRCore
   git checkout $branch_name
 
+  echo -e "\033[1;36mChecking out branch $branch_name in VRNFe repository...\033[0m"
   cd ../VRNFe
   git checkout $branch_name
 
+  echo -e "\033[1;36mChecking out branch $branch_name in VRFramework repository...\033[0m"
   cd ../VRFramework
   git checkout $branch_name
 
+  echo -e "\033[1;36mChecking out branch $branch_name in VRWorkflow repository...\033[0m"
   cd ../VRWorkflow
   git checkout $branch_name
 }
 
 # Function to update branches
 pull_all() {
+  echo -e "\033[1;36mPulling all changes in VRMaster repository...\033[0m"
   cd VRMaster
   git pull --all
 
+  echo -e "\033[1;36mPulling all changes in VRConnect repository...\033[0m"
   cd ../VRConnect
   git pull --all
 
+  echo -e "\033[1;36mPulling all changes in VRCore repository...\033[0m"
   cd ../VRCore
   git pull --all
 
+  echo -e "\033[1;36mPulling all changes in VRNFe repository...\033[0m"
   cd ../VRNFe
   git pull --all
 
+  echo -e "\033[1;36mPulling all changes in VRFramework repository...\033[0m"
   cd ../VRFramework
   git pull --all
 
+  echo -e "\033[1;36mPulling all changes in VRWorkflow repository...\033[0m"
   cd ../VRWorkflow
   git pull --all
 }
@@ -98,26 +122,32 @@ pull_all() {
 # Function to create branches from existing ones
 create_branch() {
   read -p "New branch name: " new_branch_name
+  echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRMaster repository...\033[0m"
   cd VRMaster
   git checkout -b $new_branch_name $create_branch_name
   git push --set-upstream origin $new_branch_name
 
+  echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRConnect repository...\033[0m"
   cd ../VRConnect
   git checkout -b $new_branch_name $create_branch_name
   git push --set-upstream origin $new_branch_name
 
+  echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRCore repository...\033[0m"
   cd ../VRCore
   git checkout -b $new_branch_name $create_branch_name
   git push --set-upstream origin $new_branch_name
 
+  echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRNFe repository...\033[0m"
   cd ../VRNFe
   git checkout -b $new_branch_name $create_branch_name
   git push --set-upstream origin $new_branch_name
 
+  echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRFramework repository...\033[0m"
   cd ../VRFramework
   git checkout -b $new_branch_name $create_branch_name
   git push --set-upstream origin $new_branch_name
 
+  echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRWorkflow repository...\033[0m"
   cd ../VRWorkflow
   git checkout -b $new_branch_name $create_branch_name
   git push --set-upstream origin $new_branch_name
@@ -125,21 +155,27 @@ create_branch() {
 
 # Function to update local branches from remote using its upstream or another branch
 update_branch() {
+  echo -e "\033[1;36mUpdating branch $update_branch_name in VRMaster repository...\033[0m"
   cd VRMaster
   git pull origin $update_branch_name
 
+  echo -e "\033[1;36mUpdating branch $update_branch_name in VRConnect repository...\033[0m"
   cd ../VRConnect
   git pull origin $update_branch_name
 
+  echo -e "\033[1;36mUpdating branch $update_branch_name in VRCore repository...\033[0m"
   cd ../VRCore
   git pull origin $update_branch_name
 
+  echo -e "\033[1;36mUpdating branch $update_branch_name in VRNFe repository...\033[0m"
   cd ../VRNFe
   git pull origin $update_branch_name
 
+  echo -e "\033[1;36mUpdating branch $update_branch_name in VRFramework repository...\033[0m"
   cd ../VRFramework
   git pull origin $update_branch_name
 
+  echo -e "\033[1;36mUpdating branch $update_branch_name in VRWorkflow repository...\033[0m"
   cd ../VRWorkflow
   git pull origin $update_branch_name
 }

@@ -54,6 +54,7 @@ The script now includes the following new features:
 1. **Colorful Output**: The script uses ANSI escape codes to add color to the echo statements, making the output more visually appealing.
 2. **Header and Footer**: The script prints a header with a title at the beginning and a footer with a message at the end, providing a more structured and professional look.
 3. **Centralized and Captivating Prompts**: The prompt messages have been updated to be more centralized and captivating, enhancing the user experience.
+4. **Verbose Output**: The script now displays more verbose output during operations, including showing the affected repository in a different color.
 
 ### How to run the script
 
