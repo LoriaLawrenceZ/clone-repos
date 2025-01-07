@@ -47,7 +47,7 @@ checkout_branch() {
 }
 
 # Function to update branches
-checkout_branch() {
+pull_all() {
   cd VRMaster
   git pull --all
 
