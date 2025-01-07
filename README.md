@@ -42,3 +42,34 @@ If you do not have `gsutil` installed, you can install it by following these ste
    ```
    gsutil version
    ```
+
+## clone_repos.sh
+
+The `clone_repos.sh` script is used to clone multiple repositories, checkout branches, pull changes, create new branches, and update local branches from remote.
+
+### New Features
+
+The script now includes the following new features:
+
+1. **Colorful Output**: The script uses ANSI escape codes to add color to the echo statements, making the output more visually appealing.
+2. **Header and Footer**: The script prints a header with a title at the beginning and a footer with a message at the end, providing a more structured and professional look.
+3. **Centralized and Captivating Prompts**: The prompt messages have been updated to be more centralized and captivating, enhancing the user experience.
+
+### How to run the script
+
+1. Open a terminal.
+2. Navigate to the directory containing the `clone_repos.sh` script.
+3. Run the script using the following command:
+   ```
+   ./clone_repos.sh
+   ```
+4. Follow the on-screen prompts to perform the desired actions.
+
+### Example Usage
+
+1. To clone the repositories, select option `[1] Clone repositories`.
+2. To checkout a branch in all repositories, select option `[2] Checkout branch in repositories` and enter the branch name when prompted.
+3. To clone and checkout a branch in all repositories, select option `[3] Clone and checkout branch in repositories` and enter the branch name when prompted.
+4. To pull all changes from upstream, select option `[4] Pull all changes from upstream`.
+5. To create a new branch from an existing one, select option `[5] Create new branch from existing one` and enter the branch name when prompted.
+6. To update a local branch from remote, select option `[6] Update local branch from remote` and enter the branch name when prompted.
