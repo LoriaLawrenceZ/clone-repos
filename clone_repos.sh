@@ -125,32 +125,26 @@ create_branch() {
   echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRMaster repository...\033[0m"
   cd VRMaster
   git checkout -b $new_branch_name $create_branch_name
-  git push --set-upstream origin $new_branch_name
 
   echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRConnect repository...\033[0m"
   cd ../VRConnect
   git checkout -b $new_branch_name $create_branch_name
-  git push --set-upstream origin $new_branch_name
 
   echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRCore repository...\033[0m"
   cd ../VRCore
   git checkout -b $new_branch_name $create_branch_name
-  git push --set-upstream origin $new_branch_name
 
   echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRNFe repository...\033[0m"
   cd ../VRNFe
   git checkout -b $new_branch_name $create_branch_name
-  git push --set-upstream origin $new_branch_name
 
   echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRFramework repository...\033[0m"
   cd ../VRFramework
   git checkout -b $new_branch_name $create_branch_name
-  git push --set-upstream origin $new_branch_name
 
   echo -e "\033[1;36mCreating branch $new_branch_name from $create_branch_name in VRWorkflow repository...\033[0m"
   cd ../VRWorkflow
   git checkout -b $new_branch_name $create_branch_name
-  git push --set-upstream origin $new_branch_name
 }
 
 # Function to update local branches from remote using its upstream or another branch
