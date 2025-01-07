@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# Function to print a header with a title
+print_header() {
+  echo -e "\033[1;34m"
+  echo "=============================="
+  echo "       CLONE REPOS TOOL       "
+  echo "=============================="
+  echo -e "\033[0m"
+}
+
+# Function to print a footer with a message
+print_footer() {
+  echo -e "\033[1;34m"
+  echo "=============================="
+  echo "         OPERATION DONE       "
+  echo "=============================="
+  echo -e "\033[0m"
+}
+
 # Function to ask which branch user wants to checkout
 ask_branch() {
   read -p "Branch to checkout: " branch_name
@@ -126,14 +144,17 @@ update_branch() {
   git pull origin $update_branch_name
 }
 
+# Print header
+print_header
+
 # Prompt the user for the desired action
-echo "What would you like to do?"
-echo "[1] Clone repositories"
-echo "[2] Checkout branch in repositories"
-echo "[3] Clone and checkout branch in repositories"
-echo "[4] Pull all changes from upstream"
-echo "[5] Create new branch from existing one"
-echo "[6] Update local branch from remote"
+echo -e "\033[1;32mWhat would you like to do?\033[0m"
+echo -e "\033[1;33m[1] Clone repositories\033[0m"
+echo -e "\033[1;33m[2] Checkout branch in repositories\033[0m"
+echo -e "\033[1;33m[3] Clone and checkout branch in repositories\033[0m"
+echo -e "\033[1;33m[4] Pull all changes from upstream\033[0m"
+echo -e "\033[1;33m[5] Create new branch from existing one\033[0m"
+echo -e "\033[1;33m[6] Update local branch from remote\033[0m"
 read -p "Enter the number of your choice: " choice
 
 case $choice in
@@ -161,7 +182,10 @@ case $choice in
     update_branch
     ;;
   *)
-    echo "Invalid choice. Exiting."
+    echo -e "\033[1;31mInvalid choice. Exiting.\033[0m"
     exit 1
     ;;
 esac
+
+# Print footer
+print_footer
