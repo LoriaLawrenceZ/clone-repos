@@ -174,6 +174,16 @@ update_branch() {
   git pull origin $update_branch_name
 }
 
+# Function to list altered archives and their status
+list_altered_archives() {
+  for repo in VRMaster VRConnect VRCore VRNFe VRFramework VRWorkflow; do
+    echo -e "\033[1;36mListing altered archives in $repo repository...\033[0m"
+    cd $repo
+    git status --short
+    cd ..
+  done
+}
+
 # Print header
 print_header
 
@@ -185,6 +195,7 @@ echo -e "\033[1;33m[3] Clone and checkout branch in repositories\033[0m"
 echo -e "\033[1;33m[4] Pull all changes from upstream\033[0m"
 echo -e "\033[1;33m[5] Create new branch from existing one\033[0m"
 echo -e "\033[1;33m[6] Update local branch from remote\033[0m"
+echo -e "\033[1;33m[7] List altered archives and their status\033[0m"
 read -p "Enter the number of your choice: " choice
 
 case $choice in
@@ -210,6 +221,9 @@ case $choice in
   6)
     ask_update_branch
     update_branch
+    ;;
+  7)
+    list_altered_archives
     ;;
   *)
     echo -e "\033[1;31mInvalid choice. Exiting.\033[0m"
