@@ -55,6 +55,7 @@ The script now includes the following new features:
 2. **Header and Footer**: The script prints a header with a title at the beginning and a footer with a message at the end, providing a more structured and professional look.
 3. **Centralized and Captivating Prompts**: The prompt messages have been updated to be more centralized and captivating, enhancing the user experience.
 4. **Verbose Output**: The script now displays more verbose output during operations, including showing the affected repository in a different color.
+5. **List Altered Archives**: The script now includes an option to list altered archives and their status (added or not to the stage) and the repository location.
 
 ### How to run the script
 
@@ -74,3 +75,4 @@ The script now includes the following new features:
 4. To pull all changes from upstream, select option `[4] Pull all changes from upstream`.
 5. To create a new branch from an existing one, select option `[5] Create new branch from existing one` and enter the branch name when prompted.
 6. To update a local branch from remote, select option `[6] Update local branch from remote` and enter the branch name when prompted.
+7. To list altered archives and their status, select option `[7] List altered archives and their status`.
