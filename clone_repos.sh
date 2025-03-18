@@ -180,10 +180,11 @@ list_altered_archives() {
     echo -e "\033[1;36mListing altered archives in $repo repository...\033[0m"
     cd $repo
     git status --short | while read -r line; do
+     status=$(echo $line | awk '{print $1}')
       path=$(echo $line | awk '{print $2}')
       archive=$(basename $path)
       dir=$(dirname $path)
-      echo -e "\033[1;30m$dir/\033[0m\033[1;37m$archive\033[0m"
+      echo -e "\033[1;37m$status \033[1;30m$dir/\033[0m\033[1;37m$archive\033[0m"
     done
     cd ..
   done
