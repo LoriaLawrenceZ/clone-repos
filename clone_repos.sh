@@ -179,7 +179,12 @@ list_altered_archives() {
   for repo in VRMaster VRConnect VRCore VRNFe VRFramework VRWorkflow; do
     echo -e "\033[1;36mListing altered archives in $repo repository...\033[0m"
     cd $repo
-    git status --short
+    git status --short | while read -r line; do
+      path=$(echo $line | awk '{print $2}')
+      archive=$(basename $path)
+      dir=$(dirname $path)
+      echo -e "\033[1;30m$dir/\033[0m\033[1;37m$archive\033[0m"
+    done
     cd ..
   done
 }
